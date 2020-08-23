@@ -1,2 +1,2 @@
 realese: python manage.py migrate
-web: gunicorn crm.wgsi --log-file -
+web: gunicorn crm.wsgi --log-file -
