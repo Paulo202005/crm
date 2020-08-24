@@ -16,7 +16,7 @@
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
 
-    <table class="table table-bordered mt-4">
+    <table class="table table-bordered mt-4 table-responsive-md">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -34,7 +34,7 @@
                     <td>{{ customer.get_full_phone_number }}</td>
                     <td>{{ customer.email }}</td>
                     <form method="post" action="{{ customer.get_delete_url }}">{% csrf_token %}
-                        <td><button type="submit" class="btn-danger">Excluir</button></td>
+                        <td><button type="submit" class="btn btn-danger">Excluir</button></td>
                     </form>
                 </tr>
             {% endfor %}

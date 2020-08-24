@@ -15,9 +15,9 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+# BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -28,7 +28,7 @@ SECRET_KEY = '(+)ckszgq*gse7+t3%=ymwv+*l1@&mtt0erv98ek7*x4eukf=)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['app-arg002-crm.herokuapp.com']
+ALLOWED_HOSTS = ['app-arg002-crm.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 #     }
 # }
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')})
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -125,9 +125,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-PROJECT_ROOT = os.path.abspath(os.path.join(__file__, os.pardir))
+# PROJECT_ROOT = os.path.abspath(os.path.join(__file__, os.pardir))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+
+APPEND_SLASH = False
 
 LOGIN_URL = '/login/'
 
